@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "569588323995",
+    "project_id": "e-pay-a0de1",
+    "storage_bucket": "e-pay-a0de1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569588323995:android:bb846722228d95990cd83e",
+        "android_client_info": {
+          "package_name": "com.fazmy.e_pay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569588323995-8ni1h5clc93hdb3t0ojuhfkvdbcstr84.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fazmy.e_pay",
+            "certificate_hash": "392a2ad9771c6d0e225559ffa9ce571cfcb88262"
+          }
+        },
+        {
+          "client_id": "569588323995-2784gkef3n89tlflvmmgc48dsg8kl4qb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAESVDyCq8jHXwg7xhyifdt2-m7XuSlQ8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569588323995-2784gkef3n89tlflvmmgc48dsg8kl4qb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
