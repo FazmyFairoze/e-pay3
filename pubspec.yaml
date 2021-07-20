@@ -42,7 +42,7 @@ dependencies:
   #syncfusion_flutter_chart: ^19.1.54
   fl_chart: ^0.36.1
   #qr_code_scanner: ^0.5.1
-  barcode_scan:
+  #barcode_scan:
   cloud_firestore: ^2.4.0
 
 

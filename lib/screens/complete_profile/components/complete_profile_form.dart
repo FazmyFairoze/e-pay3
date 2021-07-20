@@ -1,4 +1,8 @@
+//import 'dart:developer';
+import 'package:e_pay/models/User.dart';
+import 'package:e_pay/services/database.dart';
 import 'package:e_pay/screens/home/home_screen.dart';
+import 'package:e_pay/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +16,17 @@ import '../../../size_config.dart';
 
 class CompleteProfileForm extends StatefulWidget {
   @override
+  static final phoneNumberController = TextEditingController();
+  static final nameContoller = TextEditingController();
+  static final addressContoller = TextEditingController();
+  static final nicController = TextEditingController();
   _CompleteProfileFormState createState() => _CompleteProfileFormState();
 }
 
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
-  final phoneNumberController = TextEditingController();
+
   String fullName;
   String lastName;
   String phoneNumber;
@@ -59,7 +67,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               print(phoneNumber);
               if (_formKey.currentState.validate()) {
                 //Navigator.pushNamed(context, OtpScreen.routeName);
-                loginUser(phoneNumberController.text, context);
+                loginUser(
+                    CompleteProfileForm.phoneNumberController.text, context);
               }
             },
           ),
@@ -70,6 +79,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildAddressFormField() {
     return TextFormField(
+      controller: CompleteProfileForm.addressContoller,
       onSaved: (newValue) => address = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
@@ -98,11 +108,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildPhoneNumberFormField() {
     return TextFormField(
-      controller: phoneNumberController,
+      controller: CompleteProfileForm.phoneNumberController,
       keyboardType: TextInputType.phone,
       onSaved: (newValue) => phoneNumber = newValue,
       onChanged: (newValue) {
-        phoneNumber = phoneNumberController.text;
+        phoneNumber = CompleteProfileForm.phoneNumberController.text;
         if (newValue.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
         }
@@ -128,6 +138,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildNICFormField() {
     return TextFormField(
+      controller: CompleteProfileForm.nicController,
       onSaved: (newValue) => lastName = newValue,
       decoration: InputDecoration(
         labelText: "NIC",
@@ -142,6 +153,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildFullNameFormField() {
     return TextFormField(
+      controller: CompleteProfileForm.nameContoller,
       //controller: phoneNumberController,
       onSaved: (newValue) => fullName = newValue,
       onChanged: (value) {
@@ -174,7 +186,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     FirebaseAuth _auth = FirebaseAuth.instance;
     _auth.verifyPhoneNumber(
         //phoneNumber: '+94777118541',
-        phoneNumber: phoneNumberController.text,
+        phoneNumber: CompleteProfileForm.phoneNumberController.text,
         timeout: Duration(seconds: 60),
         verificationCompleted: (AuthCredential credential) async {
           Navigator.of(context).pop();
@@ -188,7 +200,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         verificationFailed: (Exception e) {
           print(e);
         },
-        codeSent: (String verificationId, [int forceResendingToken]) {
+        codeSent: (String verificationId, int forceResendingToken) {
           showDialog(
               context: context,
               barrierDismissible: false,
@@ -215,6 +227,12 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                               await _auth.signInWithCredential(credential);
                           User user = result.user;
                           if (user != null) {
+                            Users.addData();
+                            //AddUser(
+                            //  CompleteProfileForm.nameContoller.text,
+                            //CompleteProfileForm.addressContoller.text,
+                            //CompleteProfileForm.nicController.text,
+                            //CompleteProfileForm.phoneNumberController.text);
                             Navigator.pushNamed(context, HomeScreen.routeName);
                           } else {
                             print("error");

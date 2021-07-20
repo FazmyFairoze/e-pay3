@@ -1,7 +1,7 @@
 import 'package:e_pay/components/coustom_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:barcode_scan/barcode_scan.dart';
-import 'package:flutter/services.dart';
+//import 'package:barcode_scan/barcode_scan.dart';
+//import 'package:flutter/services.dart';
 
 import '../../enums.dart';
 
@@ -13,32 +13,32 @@ class Qr extends StatefulWidget {
 
 class _QrState extends State<Qr> {
   String result = "Please Scan Qr at merchant checkout";
-  Future scanQr() async {
-    try {
-      ScanResult qrResult = await BarcodeScanner.scan();
-      setState(() {
-        result = qrResult.rawContent;
-      });
-    } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.cameraAccessDenied) {
-        setState(() {
-          result = "Camera permission was denied";
-        });
-      } else {
-        setState(() {
-          result = "Unknown error $e";
-        });
-      }
-    } on FormatException {
-      setState(() {
-        result = "Qr was not scanned successfully";
-      });
-    } catch (e) {
-      setState(() {
-        result = "Unknown error $e";
-      });
-    }
-  }
+  //Future scanQr() async {
+  //try {
+  //ScanResult qrResult = await BarcodeScanner.scan();
+  //setState(() {
+  //result = qrResult.rawContent;
+  //});
+  //} on PlatformException catch (e) {
+  //if (e.code == BarcodeScanner.cameraAccessDenied) {
+  //setState(() {
+  //result = "Camera permission was denied";
+  //});
+  //} else {
+  //setState(() {
+  //result = "Unknown error $e";
+  //});
+  //}
+  //} on FormatException {
+  //setState(() {
+  //result = "Qr was not scanned successfully";
+  //});
+  //} catch (e) {
+  //setState(() {
+  //result = "Unknown error $e";
+  //});
+  //}
+  //}
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _QrState extends State<Qr> {
         label: Text("Scan"),
         backgroundColor: Colors.deepOrange[300],
         onPressed: () {
-          scanQr();
+          //scanQr();
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

@@ -1,3 +1,5 @@
+import 'package:e_pay/screens/complete_profile/components/complete_profile_form.dart';
+import 'package:e_pay/screens/sign_up/components/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import '../../../size_config.dart';
@@ -26,18 +28,27 @@ class DiscountBanner extends StatelessWidget {
           style: TextStyle(color: Colors.white),
           children: [
             TextSpan(
-              text: "Fazmy Fairoze\n",
+              text: CompleteProfileForm.nameContoller.text + "\n",
               style: TextStyle(
                 fontSize: getProportionateScreenWidth(24),
                 fontWeight: FontWeight.bold,
               ),
             ),
             //TextSpan(text: "Welcome\n"),
-            TextSpan(text: "Email Address: fazmy@gmail.com\n"),
-            TextSpan(text: "Phone Number: +60102821772\n"),
-            TextSpan(text: "NIC Number: 1911739423\n"),
-            TextSpan(text: "Address: 114/8 aramaya road\n"),
-            TextSpan(text: "TOTAl SPENT: Rs5000\n"),
+            TextSpan(text: "Email Address: \n"),
+            TextSpan(
+                text: "Phone Number: " +
+                    CompleteProfileForm.phoneNumberController.text +
+                    "\n"),
+            TextSpan(
+                text: "NIC Number: " +
+                    CompleteProfileForm.nicController.text +
+                    "\n"),
+            TextSpan(
+                text: "Address: " +
+                    CompleteProfileForm.addressContoller.text +
+                    "\n"),
+            TextSpan(text: "TOTAl SPENT: Rs5000 \n"),
           ],
         ),
       ),
