@@ -2,7 +2,7 @@ import 'package:e_pay/components/coustom_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 //import 'package:barcode_scan/barcode_scan.dart';
 //import 'package:flutter/services.dart';
-
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import '../../enums.dart';
 
 class Qr extends StatefulWidget {
@@ -13,6 +13,10 @@ class Qr extends StatefulWidget {
 
 class _QrState extends State<Qr> {
   String result = "Please Scan Qr at merchant checkout";
+  scanQr() async {
+    String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+        "#008080", "CANCEL", true, ScanMode.QR);
+  }
   //Future scanQr() async {
   //try {
   //ScanResult qrResult = await BarcodeScanner.scan();
@@ -55,7 +59,7 @@ class _QrState extends State<Qr> {
         label: Text("Scan"),
         backgroundColor: Colors.deepOrange[300],
         onPressed: () {
-          //scanQr();
+          scanQr();
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

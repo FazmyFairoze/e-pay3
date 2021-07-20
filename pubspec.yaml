@@ -44,7 +44,7 @@ dependencies:
   #qr_code_scanner: ^0.5.1
   #barcode_scan:
   cloud_firestore: ^2.4.0
-
+  flutter_barcode_scanner: ^2.0.0
 
 
 dev_dependencies:
