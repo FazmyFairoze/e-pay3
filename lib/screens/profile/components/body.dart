@@ -1,3 +1,5 @@
+import 'package:e_pay/screens/help/email_sender.dart';
+import 'package:e_pay/screens/help/help.dart';
 import 'package:flutter/material.dart';
 import 'package:e_pay/screens/account_details/account_details_screen.dart';
 
@@ -34,7 +36,10 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Help Center",
             icon: "assets/icons/Question mark.svg",
-            press: () {},
+            press: () {
+              //EmailSender();
+              Navigator.pushNamed(context, HelpScreen.routeName);
+            },
           ),
           ProfileMenu(
             text: "Log Out",

@@ -35,7 +35,9 @@ class DiscountBanner extends StatelessWidget {
               ),
             ),
             //TextSpan(text: "Welcome\n"),
-            TextSpan(text: "Email Address: \n"),
+            TextSpan(
+                text:
+                    "Email Address: " + SignUpForm.emailController.text + "\n"),
             TextSpan(
                 text: "Phone Number: " +
                     CompleteProfileForm.phoneNumberController.text +
@@ -48,7 +50,7 @@ class DiscountBanner extends StatelessWidget {
                 text: "Address: " +
                     CompleteProfileForm.addressContoller.text +
                     "\n"),
-            TextSpan(text: "TOTAl SPENT: Rs5000 \n"),
+            //TextSpan(text: "TOTAl SPENT: Rs5000 \n"),
           ],
         ),
       ),

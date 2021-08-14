@@ -45,6 +45,9 @@ dependencies:
   #barcode_scan:
   cloud_firestore: ^2.4.0
   flutter_barcode_scanner: ^2.0.0
+  #flutter_email_sender: ^5.0.2
+  #mailer: ^5.0.1
+  url_launcher: ^6.0.9
 
 
 dev_dependencies:

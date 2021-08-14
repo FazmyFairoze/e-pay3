@@ -9,11 +9,13 @@ import '../../../size_config.dart';
 
 class SignUpForm extends StatefulWidget {
   @override
+  static final emailController = TextEditingController();
   _SignUpFormState createState() => _SignUpFormState();
 }
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
+  //static final TextEditingController emailController = TextEditingController();
   String email;
   String password;
   String conform_password;
@@ -130,6 +132,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: SignUpForm.emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {

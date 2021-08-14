@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_pay/screens/complete_profile/components/complete_profile_form.dart';
+import 'package:e_pay/screens/sign_up/components/sign_up_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class Users {
   static final String phoneNumber =
       CompleteProfileForm.phoneNumberController.text;
   static final String nic = CompleteProfileForm.nicController.text;
+  static final String email = SignUpForm.emailController.text;
   //static final userRef =
   //  FirebaseFirestore.instance.collection('user').withConverter<User>(
   //      fromFirestore: (snapshot, _) => User.fromJson(snapshot.data()),
@@ -20,6 +22,7 @@ class Users {
   static addData() {
     Map<String, dynamic> userData = {
       "fullName": fullName,
+      "email": email,
       "address": address,
       "phoneNumber": phoneNumber,
       "nic": nic

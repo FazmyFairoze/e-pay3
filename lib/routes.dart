@@ -3,6 +3,10 @@
 
 //import 'dart:js';
 
+//import 'dart:js';
+
+import 'package:e_pay/screens/help/email_sender.dart';
+import 'package:e_pay/screens/help/help.dart';
 import 'package:e_pay/screens/qr/qr.dart';
 import 'package:flutter/widgets.dart';
 import 'package:e_pay/screens/cart/cart_screen.dart';
@@ -44,5 +48,6 @@ final Map<String, WidgetBuilder> routes = {
   ItemsAvailableScreen.routeName: (context) => ItemsAvailableScreen(),
   ItemsDetailsScreen.routeName: (context) => ItemsDetailsScreen(),
   AccountDetailsScreen.routeName: (context) => AccountDetailsScreen(),
-  EditPaymentDetailsScreen.routeName: (context) => EditPaymentDetailsScreen()
+  EditPaymentDetailsScreen.routeName: (context) => EditPaymentDetailsScreen(),
+  HelpScreen.routeName: (context) => HelpScreen()
 };

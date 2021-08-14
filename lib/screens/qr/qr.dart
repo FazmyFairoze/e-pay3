@@ -1,5 +1,6 @@
 import 'package:e_pay/components/coustom_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 //import 'package:barcode_scan/barcode_scan.dart';
 //import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -12,10 +13,22 @@ class Qr extends StatefulWidget {
 }
 
 class _QrState extends State<Qr> {
+  String barcodeScanRes;
   String result = "Please Scan Qr at merchant checkout";
+  String _scanBarcode = 'Unknown';
   scanQr() async {
-    String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-        "#008080", "CANCEL", true, ScanMode.QR);
+    try {
+      result = await FlutterBarcodeScanner.scanBarcode(
+          "#008080", "CANCEL", true, ScanMode.QR);
+    } on PlatformException {
+      result = 'Failed to get platform version.';
+    }
+    if (!mounted) return;
+
+    setState(() {
+      _scanBarcode = result;
+    });
+    //result = barcodeScanRes;
   }
   //Future scanQr() async {
   //try {
@@ -49,7 +62,7 @@ class _QrState extends State<Qr> {
     return Scaffold(
       body: Center(
         child: Text(
-          result,
+          _scanBarcode,
           style: new TextStyle(
               fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.teal),
         ),
