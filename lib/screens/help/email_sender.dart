@@ -85,10 +85,10 @@ class _EmailSenderState extends State<EmailSender> {
         message = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        }
+        //if (value.isEmpty) {
+        //  addError(error: kPassNullError);
+        //  return "";
+        //}
         return null;
       },
       decoration: InputDecoration(
@@ -113,10 +113,10 @@ class _EmailSenderState extends State<EmailSender> {
         subject = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        }
+        //if (value.isEmpty) {
+        //  addError(error: kPassNullError);
+        //  return "";
+        //}
         return null;
       },
       decoration: InputDecoration(
